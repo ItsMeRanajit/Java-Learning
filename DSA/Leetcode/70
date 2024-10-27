@@ -1,0 +1,22 @@
+class Solution {
+    public int climbStairs(int n) {
+       int count1 = 0;
+       int count2 = 1;
+       int val = 0;
+       if(n <= 1)   return 1;
+       for(int i = 1 ; i <= n ; i++){
+             val = count1+count2;
+             count1 = count2;
+             count2 = val;
+       }
+       return val;
+    }
+}
+// class Solution {
+//     public int climbStairs(int n) {
+//         if (n == 0 || n == 1) {
+//             return 1;
+//         }
+//         return climbStairs(n-1) + climbStairs(n-2);
+//     }
+// }

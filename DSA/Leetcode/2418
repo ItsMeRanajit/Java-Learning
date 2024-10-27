@@ -1,0 +1,15 @@
+
+class Solution {
+    public String[] sortPeople(String[] nm, int[] ht) {
+        Object arr[][] = new Object[nm.length][ht.length];
+        for(int i = 0 ; i < nm.length ; i++){
+            arr[i][1] = nm[i];
+            arr[i][0] = ht[i];
+        }
+        Arrays.sort(arr,Comparator.comparingInt(a ->  (int)a[0]).reversed());
+        for(int i = 0 ; i < ht.length ; i++){
+            nm[i] = arr[i][1];
+        }
+        return nm;
+    }
+}

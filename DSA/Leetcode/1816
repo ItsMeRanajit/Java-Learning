@@ -1,0 +1,21 @@
+class Solution {
+    public String truncateSentence(String s, int k) {  
+        // int i = 0;
+        // int count=0;
+        // while(i < s.length()){
+        //     if(s.charAt(i)==' ')    count++;
+        //     if(count == k)    break;
+        //     i++;
+        // }
+        // return s.substring(0,i);
+        StringBuilder str = new StringBuilder();
+        String arr[] = s.split(" ");
+        int j = 0;
+        for(String i : arr){
+            if(j < k)  str.append(i).append(" ");
+            else break;
+            j++;
+        }
+        return str.toString().trim();
+    }
+}

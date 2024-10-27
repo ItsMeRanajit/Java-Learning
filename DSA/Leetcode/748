@@ -1,0 +1,28 @@
+import java.util.Arrays;
+class Solution {
+    public String shortestCompletingWord(String licensePlate, String[] words) {
+        int count = 16;
+        int idx = 0;
+        String l = licensePlate.toLowerCase();
+        for(int i = 0 ; i < words.length ; i++){
+            boolean b = check(l,words[i],l.length());
+            if(b == true){
+                if(count>words[i].length()) { count = words[i].length(); idx = i; }
+            }
+        }
+        return words[idx];
+    }
+    public boolean check(String l, String str,int n){
+        char[] str2 = str.toCharArray();
+        for(char i : l.toCharArray()){
+            int j =0;
+            if(i >= 'a' && i <= 'z'){
+            for( j = 0 ; j< str2.length ; j++){
+                if(i == str2[j]){ str2[j]='0'; break;}
+            }
+            if(j == str2.length)   return false; 
+            }
+        }
+        return true;
+    }
+}

@@ -1,0 +1,2 @@
+f (root == null)
+            return;

@@ -1,0 +1,15 @@
+class Solution {
+    public int minOperations(int[] nums, int k) {
+        int x = 0;
+        int count = 0;
+        for(int i = 0 ; i < nums.length ; i++)  x = x ^ nums[i];
+        while (k > 0 || x > 0) {
+            if ((k % 2) != (x % 2)) {
+                count++;
+            }
+            k /= 2;
+            x /= 2;
+        }
+        return count;
+        } 
+}

@@ -1,0 +1,39 @@
+class Solution {
+    public int numSteps(String s) {
+      int carry = 0;
+      int count = 0;
+      for(int i = s.length() - 1; i > 0 ; i-- ){
+        if(s.charAt(i) - '0' + carry ==1 ){ // "0" -"0" = int 0 and "1" - "0" = int 1
+            carry = 1;
+            count+=2;
+        }
+        else count++;
+      }
+    return count + carry;
+    }
+}
+/*
+100 - when lsb is 0 then its even and divide by 2
+for this we just have to remove last 0 (100 = 4 & 4/2 = 2 i.e. 10 so 100 -> 10)
+so here just +1 step
+but,
+when,
+lsb is 1
+101 - then add one. now if add 1 itll create a carry ie carry = 1 
+so for the first 1 in string so add 1 and the carry is made as 1.
+and if the lsb is 1 then for adding one +1 step and adding 1 will create 0 so for divide another +1
+so total step +2
+now carry is 1.
+
+now if we get a 0 at lsb. the carry 1+0 == 1 . so the lsb becomes 1. and for lsb 1 step +2
+
+so once the carry is 1 it mever becomes 0. bcz if the lsb is 1 then carry+1 = 10 where carry 1 and lsb = 0
+and if 0 then divide 2 so step+1;
+and if the lsb becomes 1 then odd and added 1 as ques. and itll create carry agein
+
+now for the return statement 
+why carry+count
+bcz if the msb is 1 and carry is 1 the itll create an extra step, so +1 
+and our carry is also one so carry + couunt
+
+ */

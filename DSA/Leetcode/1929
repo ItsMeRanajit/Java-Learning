@@ -1,0 +1,8 @@
+class Solution {
+    public int[] getConcatenation(int[] nums) {
+        int array[] = new int[2*nums.length];
+        System.arraycopy(nums,0,array,0,nums.length);
+        System.arraycopy(nums,0,array,nums.length,nums.length);
+    return array;
+    }
+}

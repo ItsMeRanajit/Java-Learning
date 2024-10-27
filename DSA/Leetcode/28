@@ -1,0 +1,26 @@
+class Solution {
+    public int strStr(String haystack, String needle) {
+        int j = 0;
+        int i = 0;
+        int first_idx = 0;
+        if(needle.length()>haystack.length())
+            return -1;
+        else{
+            while (j < haystack.length() && i < needle.length()){
+             if(haystack.charAt(j)==needle.charAt(i)) {
+                i++;
+                if(i==1)    first_idx = j ;
+             }
+            else { j-=i;  i = 0; first_idx = 0;}
+            j++;
+        }
+    }
+    if(i == needle.length())    return first_idx;
+    else    return -1;
+    }
+}
+ // return haystack.indexOf(needle);
+
+    // for(int i = 0 , j = needle.length() ; j <= haystack.length() ; i++ , j++)
+    //         if(haystack.substring(i,j).compareTo(needle)==0) return i;
+    // return -1;
